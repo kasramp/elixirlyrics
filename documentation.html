@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Elixir Lyrics by kasramp</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <section>
+        <h3>
+<a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Documentation</h3>
+<p>
+The Elixir Lyrics API allows you to call two methods that respond in REST.
+</p>
+<p>
+The API support two methods named <strong>getLyric</strong> and <strong>getSimpleLyric</strong>. The former returns a JSON string as response and the latter returns result in HTML format.
+</p>
+<p>
+The API URL is located at :<br>
+<code><a href="http://elixirlyrics-kasramp.rhcloud.com/">http://elixirlyrics-kasramp.rhcloud.com/</a></code>
+</p>
+<p>
+The API requires two input parameters which are <strong>artist</strong> and <strong>song</strong>. Use <a href="http://www.utf-8.com/">UTF-8</a> when sending arguments to API methods.
+For example:<br>
+<code><a href="http://elixirlyrics-kasramp.rhcloud.com/getLyric?artist=MyFavArtist&song=MyFavSong">http://elixirlyrics-kasramp.rhcloud.com/getLyric?artist=MyFavArtist&song=MyFavSong</a></code>
+</p>
+<p>
+Consequently when you call the above API method, you get similar response to following :
+<pre>
+<code>
+{
+   "artist":"MyFavArtist",
+   "song":"MyFavSong",
+   "lyric":"MyFavLyric",
+   "errors":[]
+}
+</code>
+</pre>
+</p>
+<p>
+For <strong>getSimpleLyric</strong>, the response is in simple HTML format.
+</p>
+<h3>
+<a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples
+</h3>
+<p>
+A sample API call of <strong>getLyric</strong> method for the artist name <strong>"Nightwish"</strong> and the song <strong>"Two For Tragedy"</strong>.<br>
+<code><a href="http://elixirlyrics-kasramp.rhcloud.com/getLyric?artist=nightwish&song=two+for+tragedy">http://elixirlyrics-kasramp.rhcloud.com/getLyric?artist=nightwish&song=two+for+tragedy</a></code>
+</p>
+<p>
+The response of the API call :
+</p>
+<p>
+<pre>
+<code>
+{
+   "artist":"Nightwish",
+   "song":"Two fortragedy",
+   "lyric":"Sleep Eden sleep\n  My fallen son\n  Slumber in peace\n  \n  Cease the pain\n  Life's just in vain\n  For us to gain\n  Nothing but all the same\n  \n  No healing hand\n  For your disease\n  Drinking scorn like water\n  Cascading with my tears\n  \n  Beneath the candle bed\n  Two saddened angels-in heaven, in death\n  \n  Now let us lie\n  Sad we lived sad we die\n  Even in your pride\n  I never blamed you\n  \n  A mother's love\n  Is a sacrifice\n  Together sleeping\n  Keeping it all\n  \n  No sympathy\n  No eternity\n  One light for each undeserved tear\n  \n  Beneath the candle bed\n  Two souls with everything yet to be said",
+   "errors":[]
+}
+</code>
+</pre>
+</p>
+<p>
+If the lyric cannot be retrieved "Lyric not found" is returned in JSON response.
+<pre>
+<code>
+{
+   "artist":"Artist",
+   "song":"Song",
+   "lyric":"",
+   "errors":["Lyric not found"]
+}
+</code>
+</pre>
+</p>
+<p>
+The same request using <code>getSimpleLyric</code> method.<br>
+<code><a href="http://elixirlyrics-kasramp.rhcloud.com/getSimpleLyric?artist=nightwish&song=two+for+tragedy">http://elixirlyrics-kasramp.rhcloud.com/getSimpleLyric?artist=nightwish&song=two+for+tragedy</a></code>
+</p>
+<p>
+The response of the <strong>getSimpleLyric</strong> method:
+</p>
+<p>
+	<code>
+	Sleep Eden sleep My fallen ...
+	</code>
+</p>
+<p>
+Subsequently if the lyric cannot be retrieved empty page is returned with no error message.
+</p>
+      </section>
+      <!-- <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer> -->
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+  </body>
+</html>
